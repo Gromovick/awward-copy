@@ -1,0 +1,19 @@
+.contentWrapper {
+  position: relative;
+}
+
+.line {
+  position: absolute;
+  width: 100%;
+  height: 12%;
+  top: 47.5%;
+  background: var(--color);
+}
+
+.content {
+  font-size: clamp(3.6rem, -0.729rem + 21.647vw, 22rem);
+  text-align: center;
+  color: var(--color);
+  mix-blend-mode: normal;
+
+}

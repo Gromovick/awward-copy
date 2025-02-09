@@ -1,0 +1,19 @@
+.redHeroWrapper {
+  width: 100%;
+  height: 200vh;
+  position: relative;
+
+}
+
+.redContent {
+  width: 100%;
+  height: 100vh;
+  align-content: end;
+  position: relative;
+  
+}
+
+.line{
+  z-index: 102;
+  position: relative;
+}

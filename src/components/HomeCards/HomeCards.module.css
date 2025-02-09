@@ -1,0 +1,232 @@
+.cardsWrapper {
+  position: relative;
+  --cards: 0;
+  /* height: calc(var(--cards) * 100vh); */
+  z-index: 3;
+}
+.test {
+  background: red;
+}
+/* .cardsGrid {
+  display: grid;
+  grid-template-rows: repeat(3, 80vh);
+} */
+.cardsGrid {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+.cardsGrid.back {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-color: #dedfe3;
+}
+
+.firstCard {
+  padding: 1rem;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.cardTitle {
+  font-size: clamp(3rem, 2.294rem + 3.529vw, 6rem);
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  font-size: 1.5rem;
+}
+.item div {
+  flex-grow: 1;
+  --arrowWidth: 3rem;
+}
+
+.item svg {
+}
+
+/* .item:hover::after {
+  transform: scaleX(0%);
+  transform-origin: right;
+}
+.item::after {
+  content: "";
+  transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  top: 100%;
+  left: 0;
+  background: #000;
+  transform-origin: left;
+} */
+
+.item:hover svg {
+  animation: blink 0.1s ease 2 forwards;
+}
+/* 
+.item svg {
+  fill: #000;
+  width: 2rem;
+  height: 2rem;
+} */
+
+.item span {
+  display: block;
+  margin-right: auto;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  99% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.card {
+  padding: 2rem;
+  padding-top: 6rem;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  /* top: 100%;
+  left: 10%; */
+}
+
+.bigFrame,
+.middleFrame,
+.smallFrame {
+  border: 1px dashed #000;
+  width: 100%;
+  height: 100%;
+  padding: 1.5rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.bigFrame {
+  padding: 3rem;
+}
+.middleFrame {
+  border-style: solid;
+}
+
+.dashes {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  top: 0;
+  left: 0;
+}
+.dash {
+  width: 1px;
+  height: 1.5rem;
+  background: #000;
+  position: absolute;
+}
+.dash:nth-child(1) {
+  left: 50%;
+  bottom: 100%;
+}
+.dash:nth-child(2) {
+  left: 100%;
+  top: 50%;
+  transform-origin: bottom;
+  transform: translate(-50%, -50%) rotateZ(90deg);
+}
+.dash:nth-child(3) {
+  top: 100%;
+  left: 50%;
+}
+.dash:nth-child(4) {
+  left: 0%;
+  top: 50%;
+  transform-origin: top;
+
+  transform: translate(-50%, -50%) rotateZ(90deg);
+}
+.cross {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 3rem;
+  height: 3rem;
+}
+.cross::before,
+.cross::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background: #000;
+}
+.cross::before {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.cross::after {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotateZ(90deg);
+}
+
+.video {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 16/9;
+  position: absolute;
+  left: 50%;
+  top: 15rem;
+  object-fit: cover;
+  transform: translateX(-50%);
+  z-index: 2;
+  scale: 1.25;
+  /* justify-content: center; */
+}
+
+.videoWrapper {
+}
+
+.subTitle {
+  font-weight: 400;
+  font-size: 0.85rem;
+  line-height: 0rem;
+  text-transform: uppercase;
+}
+
+.frameContent {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.frameText {
+  font-size: 0.7rem;
+  font-family: sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+}
+.title {
+  font-size: clamp(1.5rem, 0.441rem + 5.294vw, 6rem);
+  word-break: break-all;
+}
