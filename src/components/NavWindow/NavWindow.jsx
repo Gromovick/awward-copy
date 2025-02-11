@@ -105,3 +105,5 @@ export const NavWindow = ({ state, setState }) => {
     </>
   );
 };
+
+// export default NavWindow;

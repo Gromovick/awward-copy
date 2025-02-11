@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { memo, useEffect, useRef, useState } from "react";
 import s from "./Footer.module.css";
 
 import gsap from "gsap";
@@ -8,7 +8,7 @@ import { UnderLine, UnderLineWithArrows } from "../UnderLine/UnderLine";
 import { TheLine } from "../TheLine/TheLine";
 import { SectionTitle } from "../SectionTitle/SectionTitle";
 
-export const Footer = () => {
+export const Footer = memo(() => {
   const [contentHeight, setContentHeight] = useState(0);
   const content = useRef();
 
@@ -225,4 +225,4 @@ export const Footer = () => {
       </div> */}
     </footer>
   );
-};
+});

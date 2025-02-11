@@ -1,10 +1,10 @@
-import React, { useRef } from "react";
+import React, { memo, useRef } from "react";
 import s from "./News.module.css";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { SectionTitle } from "../SectionTitle/SectionTitle";
 
-export const News = () => {
+const News = memo(() => {
   const cardsRef = useRef([]);
 
   useGSAP(
@@ -68,7 +68,7 @@ export const News = () => {
             className={s.card}
             ref={(el) => (cardsRef.current[index] = el)}
           >
-            <img src={imgSrc} alt="" className={s.cardImg} />
+            <img src={imgSrc} alt="" className={s.cardImg} loading="lazy" />
             <div className={s.cardContent}>
               <p className={s.cardDate}>/29/11/2024 </p>
               <div className={s.cardTitle}>The Vault</div>
@@ -92,4 +92,6 @@ export const News = () => {
       </div>
     </div>
   );
-};
+});
+
+export default News;

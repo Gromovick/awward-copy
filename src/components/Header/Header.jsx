@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import s from "./Header.module.css";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { NavWindow } from "../NavWindow/NavWindow";
+import {NavWindow} from "../NavWindow/NavWindow";
 export const Header = ({ isCustom, custom }) => {
   const navbar = [
     { title: "Home", path: ["/home", "/"] },

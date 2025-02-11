@@ -10,11 +10,11 @@ import { useContext } from "react";
 import { HeaderContext } from "../Header/HeaderProvider";
 import { SectionTitle } from "../SectionTitle/SectionTitle";
 import { UnderLineWithArrows } from "../UnderLine/UnderLine";
-
+import { memo } from "react";
 gsap.registerPlugin(useGSAP);
 gsap.registerPlugin(CustomEase);
 gsap.registerPlugin(ScrollTrigger);
-export const HomeCards = () => {
+const HomeCards = memo(() => {
   const container = useRef();
   const cards = useRef([]);
   const cardsWrapper = useRef([]);
@@ -267,27 +267,6 @@ export const HomeCards = () => {
               <SectionTitle>About the line</SectionTitle>
               <h1 className={s.cardTitle}>Highlights</h1>
               <ul className={s.list}>
-                {/* <li className={s.item}>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    height="24px"
-                    viewBox="0 -960 960 960"
-                    width="24px"
-                    fill="#5f6368"
-                  >
-                    <path d="M647-440H160v-80h487L423-744l57-56 320 320-320 320-57-56 224-224Z" />
-                  </svg>
-                  <span>Work</span>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    height="24px"
-                    viewBox="0 -960 960 960"
-                    width="24px"
-                    fill="#5f6368"
-                  >
-                    <path d="M647-440H160v-80h487L423-744l57-56 320 320-320 320-57-56 224-224Z" />
-                  </svg>
-                </li> */}
                 <li className={s.item}>
                   <UnderLineWithArrows
                     full={true}
@@ -320,6 +299,7 @@ export const HomeCards = () => {
                   autoPlay
                   muted
                   loop
+                  
                 ></video>
               </div>
               <div className={s.bigFrame} ref={bigFrame}>
@@ -457,4 +437,6 @@ export const HomeCards = () => {
       </div>
     </div>
   );
-};
+});
+
+export default HomeCards;

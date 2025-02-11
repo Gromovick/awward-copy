@@ -4,10 +4,10 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { SectionTitle } from "../SectionTitle/SectionTitle";
-
+import { memo } from "react";
 gsap.registerPlugin(useGSAP);
 gsap.registerPlugin(ScrollTrigger);
-export const About = () => {
+const About = memo(() => {
   useGSAP(
     () => {
       gsap.from(`.${s.images} img`, {
@@ -106,4 +106,5 @@ export const About = () => {
       </div>
     </div>
   );
-};
+});
+export default About;

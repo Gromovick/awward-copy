@@ -1,13 +1,12 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, memo } from "react";
 import s from "./RedHero.module.css";
 import gsap from "gsap";
 import { CustomEase } from "gsap/CustomEase";
 
-
 gsap.registerPlugin(CustomEase);
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
-export const RedHero = () => {
+export const RedHero = memo(() => {
   const container = useRef();
 
   useEffect(() => {
@@ -39,4 +38,4 @@ export const RedHero = () => {
   }, [container.current]);
 
   return <div className={s.redWrapper} ref={container}></div>;
-};
+});

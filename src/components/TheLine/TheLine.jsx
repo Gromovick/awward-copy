@@ -53,7 +53,7 @@ export const TheLine = ({ className, color, anim, needAnim }) => {
       className={`${s.contentWrapper} ${className ? className : ""}`}
     >
       <div className={s.line}></div>
-      <h1 className={s.content}>THE LINE</h1>
+      <h1 className={s.content}>THE L1NE</h1>
     </div>
   );
 };

@@ -11,6 +11,7 @@
   background-color: #dedfe3f2;
   position: relative;
   z-index: 1;
+  will-change: transform;
 }
 
 .wrapper {

@@ -8,6 +8,7 @@
   height: 12%;
   top: 47.5%;
   background: var(--color);
+  will-change: transform;
 }
 
 .content {
@@ -15,5 +16,5 @@
   text-align: center;
   color: var(--color);
   mix-blend-mode: normal;
-
+  will-change: opacity;
 }

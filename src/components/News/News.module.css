@@ -35,6 +35,11 @@
   padding: 0.5rem;
 }
 
+.card{
+  will-change: transform;
+
+}
+
 @media (max-width: 55.5rem) {
   .cards {
     grid-template-columns: repeat(1, 1fr);

@@ -1,11 +1,11 @@
-import React, { useContext } from "react";
+import React, { memo, useContext } from "react";
 import s from "./Partners.module.css";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { HeaderContext } from "../Header/HeaderProvider";
 import { SectionTitle } from "../SectionTitle/SectionTitle";
-export const Partners = () => {
+const Partners = memo(() => {
   const { setCustomColor, clearCustomColor } = useContext(HeaderContext);
 
   const partners = [
@@ -91,4 +91,6 @@ export const Partners = () => {
       </div>
     </div>
   );
-};
+});
+
+export default Partners;

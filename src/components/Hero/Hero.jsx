@@ -3,13 +3,13 @@ import s from "./Hero.module.css";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { CustomEase } from "gsap/CustomEase";
-
+import { memo } from "react";
 gsap.registerPlugin(CustomEase);
 gsap.registerPlugin(ScrollTrigger);
 import { RedHero } from "../RedHero/RedHero";
 import { TheLine } from "../TheLine/TheLine";
 import { PreLoad } from "../PreLoad/PreLoad";
-export const Hero = () => {
+export const Hero = memo(() => {
   const container = useRef();
 
   useEffect(() => {
@@ -61,4 +61,4 @@ export const Hero = () => {
       </div>
     </>
   );
-};
+});
