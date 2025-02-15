@@ -11,13 +11,11 @@ import { NavWindow } from "./components/NavWindow/NavWindow";
 function App() {
   return (
     <div className={"App"}>
-      {/* <NavWindow /> */}
       <HeaderProvider>
         <VideoBack />
         <Hero />
-        {/* <div style={{height: "100vh"}}></div> */}
-        <Home />
-        <Footer />
+        {/* <Home /> */}
+        {/* <Footer /> */}
       </HeaderProvider>
     </div>
   );
