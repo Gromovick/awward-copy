@@ -45,11 +45,12 @@ export const Hero = memo(() => {
   );
 
   const [loaded, setIsLoaded] = useState(false);
+  // const loaded = useRef(false);
   const [preload, setPreload] = useState(true);
   useEffect(() => {
-    window.addEventListener("load", () => {
+    if (!loaded) {
       setIsLoaded(true);
-    });
+    }
   }, []);
 
   return (

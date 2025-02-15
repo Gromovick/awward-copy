@@ -17,12 +17,14 @@ export const PreLoad = ({ isLoaded, setPreload }) => {
   }, []);
 
   useEffect(() => {
-    if (fps > 13) {
+    // console.log(fps);
+
+    if (fps > 13 && isLoaded) {
       clearInterval(timerRef.current);
       setFps(24);
       tlRef.current?.play();
     }
-  }, [isLoaded, fps, tlRef.current]);
+  }, [fps, tlRef.current]);
 
   useGSAP(
     () => {
@@ -33,7 +35,7 @@ export const PreLoad = ({ isLoaded, setPreload }) => {
         duration: 1,
         delay: 1,
         onComplete() {
-          setPreload(false);
+          // setPreload(false);
         },
       });
       tlRef.current = tl;

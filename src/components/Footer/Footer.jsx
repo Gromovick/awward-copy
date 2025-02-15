@@ -7,11 +7,12 @@ import { useGSAP } from "@gsap/react";
 import { UnderLine, UnderLineWithArrows } from "../UnderLine/UnderLine";
 import { TheLine } from "../TheLine/TheLine";
 import { SectionTitle } from "../SectionTitle/SectionTitle";
-
+gsap.registerPlugin(ScrollTrigger);
 export const Footer = memo(() => {
   const [contentHeight, setContentHeight] = useState(0);
   const content = useRef();
-
+  const myRef = useRef(null);
+  const secondRef = useRef(null);
   const [isActive, setIsActive] = useState(-1);
   const faqsContent = [
     {
@@ -95,30 +96,39 @@ export const Footer = memo(() => {
   );
   useGSAP(
     () => {
-      gsap.to(`.${s.footerWrapper}`, {
-        y: "-30%",
-        rotation: -16,
-        scrollTrigger: {
-          trigger: `.${s.footerWrapper}`,
-          start: "bottom bottom",
-          end: `bottom top`,
-          scrub: true,
-        },
-      });
+      gsap.fromTo(
+        secondRef.current,
+        { y: "0%", rotation: 0 },
+        {
+          y: "-30%",
+          rotation: -16,
+          scrollTrigger: {
+            trigger: myRef.current,
+            start: "top top",
+            end: `bottom bottom`,
+            scrub: true,
+            markers: true,
+          },
+          onEnter: () => {
+            ScrollTrigger.update();
+          },
+        }
+      );
     },
-    { dependencies: [] }
+    { dependencies: [myRef.current, secondRef.current] }
   );
 
   useEffect(() => {
     setContentHeight(content.current?.clientHeight);
-  }, []);
+  }, [content.current]);
 
   return (
     <footer
       className={s.footer}
-      style={{ paddingBottom: `${contentHeight + contentHeight / 2}px` }}
+      // style={{ paddingBottom: `${contentHeight + contentHeight / 2}px` }}
+      ref={myRef}
     >
-      <div className={s.footerWrapper}>
+      <div className={s.footerWrapper} ref={secondRef}>
         <h1 className={s.title}>
           <UnderLineWithArrows color={"#000"} text={"Let's go"} visible={true}>
             {/* <div className={s.titleText}>Let's go</div> */}
@@ -126,6 +136,9 @@ export const Footer = memo(() => {
         </h1>
         <div className={s.lineWrapper}>
           <TheLine className={s.theLine} color={"#000"} needAnim={false} />
+        </div>
+        <div>
+          <h1> LOL</h1>
         </div>
       </div>
       <div className={s.footerScroller}>
@@ -150,29 +163,6 @@ export const Footer = memo(() => {
                   </div>
                 </div>
                 <div className={s.faqWrapper}>
-                  {/* <div className={s.faqItem}>
-                    <div className={s.faqVisible}>
-                      <p className={s.faqTitle}>FAQ</p>
-                      <div className={s.iconWrapper}>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          className={s.icon}
-                          viewBox="0 -960 960 960"
-                        >
-                          <path d="M440-160v-487L216-423l-56-57 320-320 320 320-56 57-224-224v487h-80Z" />
-                        </svg>
-                      </div>
-                    </div>
-                    <div className={s.faqContentWrapper}>
-                      <div className={s.faqContent}>
-                        Lorem ipsum dolor, sit amet consectetur adipisicing
-                        elit. A delectus optio facilis maiores placeat similique
-                        id molestiae corporis dolorem quidem eos obcaecati quo
-                        odio nihil quod, libero vero illo tempore.
-                      </div>
-                    </div>
-                  </div> */}
-
                   {faqsContent.map((item, index) => {
                     return (
                       <div

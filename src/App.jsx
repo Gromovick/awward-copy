@@ -14,8 +14,8 @@ function App() {
       <HeaderProvider>
         <VideoBack />
         <Hero />
-        {/* <Home /> */}
-        {/* <Footer /> */}
+        <Home />
+        <Footer />
       </HeaderProvider>
     </div>
   );
