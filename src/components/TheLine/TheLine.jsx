@@ -13,47 +13,47 @@ export const TheLine = ({ className, color, anim, needAnim = undefined }) => {
     test.current = true;
   }
 
-  useGSAP(
-    () => {
-      if (!needAnim || needAnim === undefined) {
-        return;
-      }
-      const tl = gsap.timeline({ paused: true });
+  // useGSAP(
+  //   () => {
+  //     if (!needAnim || needAnim === undefined) {
+  //       return;
+  //     }
+  //     const tl = gsap.timeline({ paused: true });
 
-      tl.fromTo(
-        line.current,
-        {
-          width: "0%",
-        },
-        { width: "100%", duration: 0.35 }
-      )
-        .to(line.current, {
-          height: "100%",
-          top: 0,
-          duration: 0.35,
-        })
-        .fromTo(
-          title.current,
-          { opacity: 0 },
-          {
-            opacity: 1,
-            duration: 0.35,
-          }
-        )
-        .to(line.current, {
-          height: "12%",
-          top: "47.5%",
-          duration: 0.35,
-          onComplete: () => {
-            testFunc();
-            console.log("COMPLETED");
-          },
-        });
+  //     tl.fromTo(
+  //       line.current,
+  //       {
+  //         width: "0%",
+  //       },
+  //       { width: "100%", duration: 0.35 }
+  //     )
+  //       .to(line.current, {
+  //         height: "100%",
+  //         top: 0,
+  //         duration: 0.35,
+  //       })
+  //       .fromTo(
+  //         title.current,
+  //         { opacity: 0 },
+  //         {
+  //           opacity: 1,
+  //           duration: 0.35,
+  //         }
+  //       )
+  //       .to(line.current, {
+  //         height: "12%",
+  //         top: "47.5%",
+  //         duration: 0.35,
+  //         onComplete: () => {
+  //           testFunc();
+  //           console.log("COMPLETED");
+  //         },
+  //       });
 
-      tlRef.current = tl;
-    },
-    { dependencies: [needAnim, line.current, title.current] }
-  );
+  //     tlRef.current = tl;
+  //   },
+  //   { dependencies: [needAnim, line.current, title.current] }
+  // );
 
   useEffect(() => {
     if (anim && tlRef.current) {
